@@ -1,4 +1,4 @@
-package com.qa.dave.jones.garageSpringBootGarage;
+package com.qa.dave.jones.garageSpringBootGarage.repository.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

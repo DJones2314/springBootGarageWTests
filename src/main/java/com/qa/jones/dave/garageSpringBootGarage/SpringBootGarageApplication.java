@@ -8,5 +8,5 @@ public class SpringBootGarageApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootGarageApplication.class, args);
-	}
+	} 
 }

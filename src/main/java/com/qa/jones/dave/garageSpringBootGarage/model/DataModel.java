@@ -22,6 +22,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class DataModel implements Serializable {
 
+	
+	public DataModel() {
+		
+	}
+	
+	public DataModel(String type, String colour, int year) {
+		this.type = type;
+		this.colour = colour;
+		this.year = year;
+	} 
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

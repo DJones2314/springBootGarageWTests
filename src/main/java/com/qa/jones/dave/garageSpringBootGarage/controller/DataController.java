@@ -27,28 +27,34 @@ public class DataController {
 	@Autowired
 	VehicleRepository myRepository;
 
-	// method to create a person
+	// method to create a vehicle
 
 	@PostMapping("/vehicle")
 	public DataModel createVehicle(@Valid @RequestBody DataModel mSDM) {
-		return myRepository.save(mSDM);
+		return myRepository.save(mSDM); 
 	}
 
-	// Method to get a person
+	// Method to get a vehicle
 	@GetMapping("vehicle/{id}")
 	public DataModel getVehicleByID(@PathVariable(value = "id") Long vehicleID) {
 		return myRepository.findById(vehicleID)
 				.orElseThrow(() -> new ResourceNotFoundException("DataModel", "id", vehicleID));
 	}
+	
+	@GetMapping("vehicle/model/{type}")
+	public List<DataModel> findByVehicleType(@PathVariable(value = "type") String type) {
+		return myRepository.findByType(type);
+				//.orElseThrow(() -> new ResourceNotFoundException("DataModel", "type", vehicleType));
+	}
 
-	// Method to get all people
+	// Method to get all vehicles
 	@GetMapping("/vehicle")
 	public List<DataModel> getAllVehicles() {
 		return myRepository.findAll();
 
 	}
 
-	// Method to update a person
+	// Method to update a vehicle
 	@PutMapping("/vehicle/{id}")
 	public DataModel updateVehicle(@PathVariable(value = "id") Long vehicleID,
 			@Valid @RequestBody DataModel vehicleDetails) {
@@ -64,7 +70,7 @@ public class DataController {
 
 	}
 
-	// Method to remove a person
+	// Method to remove a vehicle
 	@DeleteMapping("/vehicle/{id}")
 	public ResponseEntity<?> deleteVehicle(@PathVariable(value = "id") Long vehicleID) {
 		DataModel mSDM = myRepository.findById(vehicleID)
