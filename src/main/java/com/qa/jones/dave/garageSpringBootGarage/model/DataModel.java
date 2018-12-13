@@ -31,7 +31,9 @@ public class DataModel implements Serializable {
 		this.type = type;
 		this.colour = colour;
 		this.year = year;
-	} 
+	}  
+	
+	
 	
 	
 	@Id

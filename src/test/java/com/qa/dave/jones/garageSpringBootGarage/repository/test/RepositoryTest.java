@@ -28,20 +28,21 @@ public class RepositoryTest {
 	@Autowired
 	private VehicleRepository MyRepo;
 	
-	@Test
-	public void retrieveByIdTest() {
-		DataModel model1 = new DataModel("ford", "red", 1990);
-		entityManager.persist(model1);
-		entityManager.flush();
-		assertTrue(MyRepo.findById(model1.getId()).isPresent());
-	}
+	
+//	@Test
+//	public void retrieveByIdTest() {
+//		DataModel model1 = new DataModel("ford", "red", 1990);
+//		entityManager.persist(model1);
+//		entityManager.flush();
+//		assertTrue(MyRepo.findById(model1.getId()).isPresent()); 
+//	} 
 	
 	@Test
 	public void retrieveByTypeTest() {
 		DataModel model2 = new DataModel("ford", "red", 1990);
 		entityManager.persist(model2);
 		entityManager.flush();
-		assertFalse(MyRepo.findAll().isEmpty()); 
-	}
+		assertFalse(MyRepo.findByType("ford").isEmpty());  
+	} 
 	
 }

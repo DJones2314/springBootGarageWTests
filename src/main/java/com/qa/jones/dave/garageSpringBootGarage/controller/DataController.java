@@ -50,7 +50,7 @@ public class DataController {
 	// Method to get all vehicles
 	@GetMapping("/vehicle")
 	public List<DataModel> getAllVehicles() {
-		return myRepository.findAll();
+		return myRepository.findAll(); 
 
 	}
 
@@ -65,9 +65,9 @@ public class DataController {
 		mSDM.setColour(vehicleDetails.getColour());
 		mSDM.setYear(vehicleDetails.getYear());
 
-		DataModel updateData = myRepository.save(mSDM);
+		DataModel updateData = myRepository.save(mSDM); 
 		return updateData;
-
+ 
 	}
 
 	// Method to remove a vehicle
@@ -80,5 +80,7 @@ public class DataController {
 		return ResponseEntity.ok().build();
 
 	}
+	
+	 
 
 }
